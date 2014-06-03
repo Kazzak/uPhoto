@@ -3,12 +3,14 @@
     if (Request.IsAuthenticated) {
 %>
         Welcome <strong><%: Page.User.Identity.Name %></strong>!
-        [ <%: Html.ActionLink("Log Off", "LogOff", "Account") %> ]
+        <%: Html.ActionLink("Cerrar sesión", "LogOff", "Account") %>
+        <%: Html.ActionLink("Mi cuenta", "Perfil", "Home") %>
 <%
     }
     else {
 %> 
-        [ <%: Html.ActionLink("Log On", "LogOn", "Account") %> ]
+        <%: Html.ActionLink("Iniciar sesión", "LogOn", "Account") %>
+        <%: Html.ActionLink("Crear Cuenta", "Register", "Account") %>
 <%
     }
 %>

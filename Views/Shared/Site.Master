@@ -3,16 +3,45 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <meta name ="viewport" content="width=device-width; initial-scale=1.0" >
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
     <script src="<%: Url.Content("~/Scripts/jquery-1.7.1.min.js") %>" type="text/javascript"></script>
     <script src="<%: Url.Content("~/Scripts/modernizr-2.5.3.js") %>" type="text/javascript"></script>
+    <script src="<%: Url.Content("~/Scripts/bootstrap.js") %>" type="text/javascript"></script>
+    <script src="<%: Url.Content("~/Scripts/responsive_paraIE.js") %>" type="text/javascript"></script>
+    <style type="text/css">
+        .newStyle1 {
+            font-family: Helvetica;
+            position: fixed;
+            top: 5px;
+            left: 4px;
+            height: 57px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="page">
         <header>
             <div id="title">
+                <h1><span aria-orientation="horizontal" class="newStyle1">uPhoto</span></h1>
             </div>
+            <div id="logindisplay">
+                <% Html.RenderPartial("LogOnUserControl"); %>
+                
+            </div>
+            <nav>
+                <ul id="menu">
+                    <%-- orden es tituloEnPagina, metodoDeLlamada, Controlador --%>
+                    <li><%: Html.ActionLink("Inicio", "Index", "Home")%></li>
+                    <li><%: Html.ActionLink("Foro", "About", "Home")%></li>
+                    <li><%: Html.ActionLink("Buscador de cámaras", "About", "Home")%></li>
+                    <li><%: Html.ActionLink("Acerca de", "About", "Home")%></li>
+                    <li><%: Html.ActionLink("Contacto", "About", "Home")%></li>
+                </ul>
+            </nav>
         </header>
         <section id="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />

@@ -10,12 +10,17 @@ namespace uPhoto.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Bienvenido a uPhoto";
+            ViewBag.Message = "Welcome to ASP.NET MVC!";
 
             return View();
         }
 
         public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Perfil()
         {
             return View();
         }
