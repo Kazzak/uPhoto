@@ -9,6 +9,9 @@ namespace uPhoto.Models
 {
     public class UserServices
     {
+
+        private Exception ex;
+
         public static bool ValidateUser(string user, string password)
         {
             //Simulación de campos en una tabla de la base de datos
@@ -26,6 +29,23 @@ namespace uPhoto.Models
             }
             return false;
         }
+
+
+        //Guarda los cambios realizados en la base de datos
+        public static bool Save(uPhotoEntities db)
+        {
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+            return true;
+        }
+
 
     }
 }

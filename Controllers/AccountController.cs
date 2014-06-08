@@ -77,18 +77,51 @@ namespace uPhoto.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Attempt to register the user
-                MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
+                try
+                {
+                    var bd = new uPhotoEntities();
+                    sesion sesion = new sesion
+                    {
+                        usuario = model.UserName,
+                        password = model.Password
+                    };
+                    bd.sesion.Add(sesion);
+                    bd.SaveChanges();
 
-                if (createStatus == MembershipCreateStatus.Success)
-                {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
+                    var existingSesion =
+                    (from c in bd.sesion
+                    where c.usuario == model.UserName && c.password == model.Password
+                    select c).First();
+
+                    int prueba = existingSesion.idsesion;
+                    usuario user = new usuario
+                    {
+                        idusuario = prueba,
+                        nombre = "pruebaNombre",
+                        apellido = "pruebaApellido",
+                        fecharegistro = DateTime.Now,
+                        email = model.Email,
+                        nacionalidad = "costarricense"
+                    };
+
+                    bd.usuario.Add(user);
+                    // Attempt to register the user
+                    //MembershipCreateStatus createStatus;
+                    //Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
+
+                    if (UserServices.Save(bd) == true)
+                    {
+                        FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Error al registrar al usuario, verificar los datos ingresados.");
+                    }
                 }
-                else
+                catch (Exception exc)
                 {
-                    ModelState.AddModelError("", ErrorCodeToString(createStatus));
+                    Console.WriteLine(exc);
                 }
             }
 

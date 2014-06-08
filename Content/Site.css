@@ -4,6 +4,11 @@ to use a different color start by replacing all instances of
 #5c87b2 with your new color.
 ----------------------------------------------------------*/
 body {
+    background-image:url(images/fondo.jpg); 
+    background-repeat:repeat-x; 
+    margin:0px; height:100%;
+    overflow: auto;
+
     background-color: #000000;
     font-size: 100%;
     font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
