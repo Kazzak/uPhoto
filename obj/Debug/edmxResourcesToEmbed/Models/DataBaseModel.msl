@@ -1,4 +1,203 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="uPhotoModelStoreContainer" CdmEntityContainer="uPhotoEntities" />
+  <EntityContainerMapping StorageEntityContainer="uPhotoModelStoreContainer" CdmEntityContainer="uPhotoEntities">
+    <EntitySetMapping Name="album">
+      <EntityTypeMapping TypeName="uPhotoModel.album">
+        <MappingFragment StoreEntitySet="album">
+          <ScalarProperty Name="idalbum" ColumnName="idalbum" />
+          <ScalarProperty Name="nombrealbum" ColumnName="nombrealbum" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="ubicacionfotos" ColumnName="ubicacionfotos" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comentario">
+      <EntityTypeMapping TypeName="uPhotoModel.comentario">
+        <MappingFragment StoreEntitySet="comentario">
+          <ScalarProperty Name="comentario1" ColumnName="comentario" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="etiqueta">
+      <EntityTypeMapping TypeName="uPhotoModel.etiqueta">
+        <MappingFragment StoreEntitySet="etiqueta">
+          <ScalarProperty Name="nombreetiqueta" ColumnName="nombreetiqueta" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fotografia">
+      <EntityTypeMapping TypeName="uPhotoModel.fotografia">
+        <MappingFragment StoreEntitySet="fotografia">
+          <ScalarProperty Name="idfotografia" ColumnName="idfotografia" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fotografo">
+      <EntityTypeMapping TypeName="uPhotoModel.fotografo">
+        <MappingFragment StoreEntitySet="fotografo">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="nombrerol" ColumnName="nombrerol" />
+          <ScalarProperty Name="emailcontacto" ColumnName="emailcontacto" />
+          <ScalarProperty Name="tiempoexperiencia" ColumnName="tiempoexperiencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producto">
+      <EntityTypeMapping TypeName="uPhotoModel.producto">
+        <MappingFragment StoreEntitySet="producto">
+          <ScalarProperty Name="idproducto" ColumnName="idproducto" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="fechalanzamiento" ColumnName="fechalanzamiento" />
+          <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publicacion">
+      <EntityTypeMapping TypeName="uPhotoModel.publicacion">
+        <MappingFragment StoreEntitySet="publicacion">
+          <ScalarProperty Name="idpublicacion" ColumnName="idpublicacion" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="publicacion1" ColumnName="publicacion" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rol">
+      <EntityTypeMapping TypeName="uPhotoModel.rol">
+        <MappingFragment StoreEntitySet="rol">
+          <ScalarProperty Name="nombrerol" ColumnName="nombrerol" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rolporusuario">
+      <EntityTypeMapping TypeName="uPhotoModel.rolporusuario">
+        <MappingFragment StoreEntitySet="rolporusuario">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="nombrerol" ColumnName="nombrerol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sesion">
+      <EntityTypeMapping TypeName="uPhotoModel.sesion">
+        <MappingFragment StoreEntitySet="sesion">
+          <ScalarProperty Name="idsesion" ColumnName="idsesion" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="uPhotoModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="idsesion" ColumnName="idsesion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+          <ScalarProperty Name="fechanacimiento" ColumnName="fechanacimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="foro">
+      <EntityTypeMapping TypeName="uPhotoModel.foro">
+        <MappingFragment StoreEntitySet="foro">
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="publicacion" ColumnName="publicacion" />
+          <ScalarProperty Name="nombreetiqueta" ColumnName="nombreetiqueta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fotosporfotografo">
+      <EntityTypeMapping TypeName="uPhotoModel.fotosporfotografo">
+        <MappingFragment StoreEntitySet="fotosporfotografo">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="nombrealbum" ColumnName="nombrealbum" />
+          <ScalarProperty Name="nombrefoto" ColumnName="nombrefoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="perfil">
+      <EntityTypeMapping TypeName="uPhotoModel.perfil">
+        <MappingFragment StoreEntitySet="perfil">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="nombrealbum" ColumnName="nombrealbum" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="albumporfotografo" TypeName="uPhotoModel.albumporfotografo" StoreEntitySet="albumporfotografo">
+      <EndProperty Name="album">
+        <ScalarProperty Name="idalbum" ColumnName="idalbum" />
+      </EndProperty>
+      <EndProperty Name="fotografo">
+        <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+        <ScalarProperty Name="nombrerol" ColumnName="nombrerol" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="comentarioporfoto" TypeName="uPhotoModel.comentarioporfoto" StoreEntitySet="comentarioporfoto">
+      <EndProperty Name="comentario">
+        <ScalarProperty Name="comentario1" ColumnName="comentario" />
+        <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+      </EndProperty>
+      <EndProperty Name="fotografia">
+        <ScalarProperty Name="idfotografia" ColumnName="idfotografia" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="comentarioporpublicacion" TypeName="uPhotoModel.comentarioporpublicacion" StoreEntitySet="comentarioporpublicacion">
+      <EndProperty Name="comentario">
+        <ScalarProperty Name="comentario1" ColumnName="comentario" />
+        <ScalarProperty Name="idusuario" ColumnName="idusuariocomentador" />
+      </EndProperty>
+      <EndProperty Name="publicacion">
+        <ScalarProperty Name="idpublicacion" ColumnName="idpublicacion" />
+        <ScalarProperty Name="idusuario" ColumnName="idusuariopublicacion" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="etiquetaporalbum" TypeName="uPhotoModel.etiquetaporalbum" StoreEntitySet="etiquetaporalbum">
+      <EndProperty Name="album">
+        <ScalarProperty Name="idalbum" ColumnName="idalbum" />
+      </EndProperty>
+      <EndProperty Name="etiqueta">
+        <ScalarProperty Name="nombreetiqueta" ColumnName="nombreetiqueta" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="etiquetaporpublicacion" TypeName="uPhotoModel.etiquetaporpublicacion" StoreEntitySet="etiquetaporpublicacion">
+      <EndProperty Name="publicacion">
+        <ScalarProperty Name="idpublicacion" ColumnName="idpublicacion" />
+        <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+      </EndProperty>
+      <EndProperty Name="etiqueta">
+        <ScalarProperty Name="nombreetiqueta" ColumnName="nombreetiqueta" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fotoporalbum" TypeName="uPhotoModel.fotoporalbum" StoreEntitySet="fotoporalbum">
+      <EndProperty Name="album">
+        <ScalarProperty Name="idalbum" ColumnName="idalbum" />
+      </EndProperty>
+      <EndProperty Name="fotografia">
+        <ScalarProperty Name="idfotografia" ColumnName="idfotografia" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
 </Mapping>

@@ -1,4 +1,573 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="uPhotoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="uPhotoModelStoreContainer" />
+  <EntityContainer Name="uPhotoModelStoreContainer">
+    <EntitySet Name="album" EntityType="uPhotoModel.Store.album" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="albumporfotografo" EntityType="uPhotoModel.Store.albumporfotografo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="comentario" EntityType="uPhotoModel.Store.comentario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="comentarioporfoto" EntityType="uPhotoModel.Store.comentarioporfoto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="comentarioporpublicacion" EntityType="uPhotoModel.Store.comentarioporpublicacion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="etiqueta" EntityType="uPhotoModel.Store.etiqueta" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="etiquetaporalbum" EntityType="uPhotoModel.Store.etiquetaporalbum" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="etiquetaporpublicacion" EntityType="uPhotoModel.Store.etiquetaporpublicacion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="fotografia" EntityType="uPhotoModel.Store.fotografia" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="fotografo" EntityType="uPhotoModel.Store.fotografo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="fotoporalbum" EntityType="uPhotoModel.Store.fotoporalbum" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="producto" EntityType="uPhotoModel.Store.producto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="publicacion" EntityType="uPhotoModel.Store.publicacion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="rol" EntityType="uPhotoModel.Store.rol" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="rolporusuario" EntityType="uPhotoModel.Store.rolporusuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sesion" EntityType="uPhotoModel.Store.sesion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuario" EntityType="uPhotoModel.Store.usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="foro" EntityType="uPhotoModel.Store.foro" store:Type="Views" store:Schema="dbo" store:Name="foro">
+      <DefiningQuery>SELECT 
+      [foro].[fechacreacion] AS [fechacreacion], 
+      [foro].[idusuario] AS [idusuario], 
+      [foro].[publicacion] AS [publicacion], 
+      [foro].[nombreetiqueta] AS [nombreetiqueta]
+      FROM [dbo].[foro] AS [foro]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="fotosporfotografo" EntityType="uPhotoModel.Store.fotosporfotografo" store:Type="Views" store:Schema="dbo" store:Name="fotosporfotografo">
+      <DefiningQuery>SELECT 
+      [fotosporfotografo].[idusuario] AS [idusuario], 
+      [fotosporfotografo].[nombrealbum] AS [nombrealbum], 
+      [fotosporfotografo].[nombrefoto] AS [nombrefoto]
+      FROM [dbo].[fotosporfotografo] AS [fotosporfotografo]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="perfil" EntityType="uPhotoModel.Store.perfil" store:Type="Views" store:Schema="dbo" store:Name="perfil">
+      <DefiningQuery>SELECT 
+      [perfil].[idusuario] AS [idusuario], 
+      [perfil].[nombre] AS [nombre], 
+      [perfil].[apellido] AS [apellido], 
+      [perfil].[foto] AS [foto], 
+      [perfil].[nombrealbum] AS [nombrealbum], 
+      [perfil].[descripcion] AS [descripcion]
+      FROM [dbo].[perfil] AS [perfil]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_albumpor_posee_album" Association="uPhotoModel.Store.fk_albumpor_posee_album">
+      <End Role="album" EntitySet="album" />
+      <End Role="albumporfotografo" EntitySet="albumporfotografo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_albumpor_posee_fotograf" Association="uPhotoModel.Store.fk_albumpor_posee_fotograf">
+      <End Role="fotografo" EntitySet="fotografo" />
+      <End Role="albumporfotografo" EntitySet="albumporfotografo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_comentar_divide_comentar" Association="uPhotoModel.Store.fk_comentar_divide_comentar">
+      <End Role="comentario" EntitySet="comentario" />
+      <End Role="comentarioporpublicacion" EntitySet="comentarioporpublicacion" />
+    </AssociationSet>
+    <AssociationSet Name="fk_comentar_posee_comentar" Association="uPhotoModel.Store.fk_comentar_posee_comentar">
+      <End Role="comentario" EntitySet="comentario" />
+      <End Role="comentarioporfoto" EntitySet="comentarioporfoto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_comentar_posee_fotograf" Association="uPhotoModel.Store.fk_comentar_posee_fotograf">
+      <End Role="fotografia" EntitySet="fotografia" />
+      <End Role="comentarioporfoto" EntitySet="comentarioporfoto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_comentar_posee_publicac" Association="uPhotoModel.Store.fk_comentar_posee_publicac">
+      <End Role="publicacion" EntitySet="publicacion" />
+      <End Role="comentarioporpublicacion" EntitySet="comentarioporpublicacion" />
+    </AssociationSet>
+    <AssociationSet Name="fk_comentar_realiza_usuario" Association="uPhotoModel.Store.fk_comentar_realiza_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="comentario" EntitySet="comentario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_etiqueta_clasifica_album" Association="uPhotoModel.Store.fk_etiqueta_clasifica_album">
+      <End Role="album" EntitySet="album" />
+      <End Role="etiquetaporalbum" EntitySet="etiquetaporalbum" />
+    </AssociationSet>
+    <AssociationSet Name="fk_etiqueta_clasifica_etiqueta" Association="uPhotoModel.Store.fk_etiqueta_clasifica_etiqueta">
+      <End Role="etiqueta" EntitySet="etiqueta" />
+      <End Role="etiquetaporalbum" EntitySet="etiquetaporalbum" />
+    </AssociationSet>
+    <AssociationSet Name="fk_etiqueta_clasifica_publicac" Association="uPhotoModel.Store.fk_etiqueta_clasifica_publicac">
+      <End Role="publicacion" EntitySet="publicacion" />
+      <End Role="etiquetaporpublicacion" EntitySet="etiquetaporpublicacion" />
+    </AssociationSet>
+    <AssociationSet Name="fk_etiquetaen_clasifica_etiqueta" Association="uPhotoModel.Store.fk_etiquetaen_clasifica_etiqueta">
+      <End Role="etiqueta" EntitySet="etiqueta" />
+      <End Role="etiquetaporpublicacion" EntitySet="etiquetaporpublicacion" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fotograf_clasifica_rolporus" Association="uPhotoModel.Store.fk_fotograf_clasifica_rolporus">
+      <End Role="rolporusuario" EntitySet="rolporusuario" />
+      <End Role="fotografo" EntitySet="fotografo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fotopora_contiene_album" Association="uPhotoModel.Store.fk_fotopora_contiene_album">
+      <End Role="album" EntitySet="album" />
+      <End Role="fotoporalbum" EntitySet="fotoporalbum" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fotopora_organiza_fotograf" Association="uPhotoModel.Store.fk_fotopora_organiza_fotograf">
+      <End Role="fotografia" EntitySet="fotografia" />
+      <End Role="fotoporalbum" EntitySet="fotoporalbum" />
+    </AssociationSet>
+    <AssociationSet Name="fk_producto_publica_usuario" Association="uPhotoModel.Store.fk_producto_publica_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_publicac_postea_usuario" Association="uPhotoModel.Store.fk_publicac_postea_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="publicacion" EntitySet="publicacion" />
+    </AssociationSet>
+    <AssociationSet Name="fk_rolporus_realizado_rol" Association="uPhotoModel.Store.fk_rolporus_realizado_rol">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="rolporusuario" EntitySet="rolporusuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_rolporus_realizado_usuario" Association="uPhotoModel.Store.fk_rolporus_realizado_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="rolporusuario" EntitySet="rolporusuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuario_ingresa_sesion" Association="uPhotoModel.Store.fk_usuario_ingresa_sesion">
+      <End Role="sesion" EntitySet="sesion" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="album">
+    <Key>
+      <PropertyRef Name="idalbum" />
+    </Key>
+    <Property Name="idalbum" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombrealbum" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="150" />
+    <Property Name="ubicacionfotos" Type="nvarchar" MaxLength="40" />
+    <Property Name="fechacreacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="albumporfotografo">
+    <Key>
+      <PropertyRef Name="idalbum" />
+      <PropertyRef Name="nombrerol" />
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idalbum" Type="int" Nullable="false" />
+    <Property Name="nombrerol" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="comentario">
+    <Key>
+      <PropertyRef Name="comentario" />
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="comentario" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="fechacreacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="comentarioporfoto">
+    <Key>
+      <PropertyRef Name="comentario" />
+      <PropertyRef Name="idusuario" />
+      <PropertyRef Name="idfotografia" />
+    </Key>
+    <Property Name="comentario" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="idfotografia" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="comentarioporpublicacion">
+    <Key>
+      <PropertyRef Name="idusuariocomentador" />
+      <PropertyRef Name="comentario" />
+      <PropertyRef Name="idpublicacion" />
+      <PropertyRef Name="idusuariopublicacion" />
+    </Key>
+    <Property Name="idusuariocomentador" Type="int" Nullable="false" />
+    <Property Name="comentario" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="idpublicacion" Type="int" Nullable="false" />
+    <Property Name="idusuariopublicacion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="etiqueta">
+    <Key>
+      <PropertyRef Name="nombreetiqueta" />
+    </Key>
+    <Property Name="nombreetiqueta" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="etiquetaporalbum">
+    <Key>
+      <PropertyRef Name="idalbum" />
+      <PropertyRef Name="nombreetiqueta" />
+    </Key>
+    <Property Name="idalbum" Type="int" Nullable="false" />
+    <Property Name="nombreetiqueta" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="etiquetaporpublicacion">
+    <Key>
+      <PropertyRef Name="idpublicacion" />
+      <PropertyRef Name="idusuario" />
+      <PropertyRef Name="nombreetiqueta" />
+    </Key>
+    <Property Name="idpublicacion" Type="int" Nullable="false" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="nombreetiqueta" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="fotografia">
+    <Key>
+      <PropertyRef Name="idfotografia" />
+    </Key>
+    <Property Name="idfotografia" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="fechacreacion" Type="datetime" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="fotografo">
+    <Key>
+      <PropertyRef Name="idusuario" />
+      <PropertyRef Name="nombrerol" />
+    </Key>
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="nombrerol" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="emailcontacto" Type="nvarchar" MaxLength="40" />
+    <Property Name="tiempoexperiencia" Type="date" />
+  </EntityType>
+  <EntityType Name="fotoporalbum">
+    <Key>
+      <PropertyRef Name="idfotografia" />
+      <PropertyRef Name="idalbum" />
+    </Key>
+    <Property Name="idfotografia" Type="int" Nullable="false" />
+    <Property Name="idalbum" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="idproducto" />
+    </Key>
+    <Property Name="idproducto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="marca" Type="nvarchar" MaxLength="20" />
+    <Property Name="modelo" Type="nvarchar" MaxLength="20" />
+    <Property Name="foto" Type="image" />
+    <Property Name="fechalanzamiento" Type="date" />
+    <Property Name="fecharegistro" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="publicacion">
+    <Key>
+      <PropertyRef Name="idpublicacion" />
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idpublicacion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="publicacion" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="foto" Type="image" />
+    <Property Name="fechacreacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="nombrerol" />
+    </Key>
+    <Property Name="nombrerol" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="fecharegistro" Type="date" />
+  </EntityType>
+  <EntityType Name="rolporusuario">
+    <Key>
+      <PropertyRef Name="idusuario" />
+      <PropertyRef Name="nombrerol" />
+    </Key>
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="nombrerol" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="sesion">
+    <Key>
+      <PropertyRef Name="idsesion" />
+    </Key>
+    <Property Name="idsesion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="idsesion" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="apellido" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="foto" Type="image" />
+    <Property Name="fecharegistro" Type="datetime" Nullable="false" />
+    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="nacionalidad" Type="nvarchar" MaxLength="20" />
+    <Property Name="fechanacimiento" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'uPhoto.dbo.foro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="foro">
+    <Key>
+      <PropertyRef Name="fechacreacion" />
+      <PropertyRef Name="idusuario" />
+      <PropertyRef Name="publicacion" />
+      <PropertyRef Name="nombreetiqueta" />
+    </Key>
+    <Property Name="fechacreacion" Type="datetime" Nullable="false" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="publicacion" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="nombreetiqueta" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'uPhoto.dbo.fotosporfotografo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="fotosporfotografo">
+    <Key>
+      <PropertyRef Name="idusuario" />
+      <PropertyRef Name="nombrealbum" />
+      <PropertyRef Name="nombrefoto" />
+    </Key>
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="nombrealbum" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="nombrefoto" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'uPhoto.dbo.perfil' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="perfil">
+    <Key>
+      <PropertyRef Name="idusuario" />
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="apellido" />
+      <PropertyRef Name="nombrealbum" />
+    </Key>
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="apellido" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="foto" Type="image" />
+    <Property Name="nombrealbum" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="fk_albumpor_posee_album">
+    <End Role="album" Type="uPhotoModel.Store.album" Multiplicity="1" />
+    <End Role="albumporfotografo" Type="uPhotoModel.Store.albumporfotografo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="album">
+        <PropertyRef Name="idalbum" />
+      </Principal>
+      <Dependent Role="albumporfotografo">
+        <PropertyRef Name="idalbum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_albumpor_posee_fotograf">
+    <End Role="fotografo" Type="uPhotoModel.Store.fotografo" Multiplicity="1" />
+    <End Role="albumporfotografo" Type="uPhotoModel.Store.albumporfotografo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fotografo">
+        <PropertyRef Name="nombrerol" />
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="albumporfotografo">
+        <PropertyRef Name="nombrerol" />
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_comentar_divide_comentar">
+    <End Role="comentario" Type="uPhotoModel.Store.comentario" Multiplicity="1" />
+    <End Role="comentarioporpublicacion" Type="uPhotoModel.Store.comentarioporpublicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comentario">
+        <PropertyRef Name="comentario" />
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="comentarioporpublicacion">
+        <PropertyRef Name="comentario" />
+        <PropertyRef Name="idusuariocomentador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_comentar_posee_comentar">
+    <End Role="comentario" Type="uPhotoModel.Store.comentario" Multiplicity="1" />
+    <End Role="comentarioporfoto" Type="uPhotoModel.Store.comentarioporfoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comentario">
+        <PropertyRef Name="comentario" />
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="comentarioporfoto">
+        <PropertyRef Name="comentario" />
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_comentar_posee_fotograf">
+    <End Role="fotografia" Type="uPhotoModel.Store.fotografia" Multiplicity="1" />
+    <End Role="comentarioporfoto" Type="uPhotoModel.Store.comentarioporfoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fotografia">
+        <PropertyRef Name="idfotografia" />
+      </Principal>
+      <Dependent Role="comentarioporfoto">
+        <PropertyRef Name="idfotografia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_comentar_posee_publicac">
+    <End Role="publicacion" Type="uPhotoModel.Store.publicacion" Multiplicity="1" />
+    <End Role="comentarioporpublicacion" Type="uPhotoModel.Store.comentarioporpublicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publicacion">
+        <PropertyRef Name="idpublicacion" />
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="comentarioporpublicacion">
+        <PropertyRef Name="idpublicacion" />
+        <PropertyRef Name="idusuariopublicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_comentar_realiza_usuario">
+    <End Role="usuario" Type="uPhotoModel.Store.usuario" Multiplicity="1" />
+    <End Role="comentario" Type="uPhotoModel.Store.comentario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="comentario">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_etiqueta_clasifica_album">
+    <End Role="album" Type="uPhotoModel.Store.album" Multiplicity="1" />
+    <End Role="etiquetaporalbum" Type="uPhotoModel.Store.etiquetaporalbum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="album">
+        <PropertyRef Name="idalbum" />
+      </Principal>
+      <Dependent Role="etiquetaporalbum">
+        <PropertyRef Name="idalbum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_etiqueta_clasifica_etiqueta">
+    <End Role="etiqueta" Type="uPhotoModel.Store.etiqueta" Multiplicity="1" />
+    <End Role="etiquetaporalbum" Type="uPhotoModel.Store.etiquetaporalbum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="etiqueta">
+        <PropertyRef Name="nombreetiqueta" />
+      </Principal>
+      <Dependent Role="etiquetaporalbum">
+        <PropertyRef Name="nombreetiqueta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_etiqueta_clasifica_publicac">
+    <End Role="publicacion" Type="uPhotoModel.Store.publicacion" Multiplicity="1" />
+    <End Role="etiquetaporpublicacion" Type="uPhotoModel.Store.etiquetaporpublicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publicacion">
+        <PropertyRef Name="idpublicacion" />
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="etiquetaporpublicacion">
+        <PropertyRef Name="idpublicacion" />
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_etiquetaen_clasifica_etiqueta">
+    <End Role="etiqueta" Type="uPhotoModel.Store.etiqueta" Multiplicity="1" />
+    <End Role="etiquetaporpublicacion" Type="uPhotoModel.Store.etiquetaporpublicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="etiqueta">
+        <PropertyRef Name="nombreetiqueta" />
+      </Principal>
+      <Dependent Role="etiquetaporpublicacion">
+        <PropertyRef Name="nombreetiqueta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fotograf_clasifica_rolporus">
+    <End Role="rolporusuario" Type="uPhotoModel.Store.rolporusuario" Multiplicity="1" />
+    <End Role="fotografo" Type="uPhotoModel.Store.fotografo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="rolporusuario">
+        <PropertyRef Name="idusuario" />
+        <PropertyRef Name="nombrerol" />
+      </Principal>
+      <Dependent Role="fotografo">
+        <PropertyRef Name="idusuario" />
+        <PropertyRef Name="nombrerol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fotopora_contiene_album">
+    <End Role="album" Type="uPhotoModel.Store.album" Multiplicity="1" />
+    <End Role="fotoporalbum" Type="uPhotoModel.Store.fotoporalbum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="album">
+        <PropertyRef Name="idalbum" />
+      </Principal>
+      <Dependent Role="fotoporalbum">
+        <PropertyRef Name="idalbum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fotopora_organiza_fotograf">
+    <End Role="fotografia" Type="uPhotoModel.Store.fotografia" Multiplicity="1" />
+    <End Role="fotoporalbum" Type="uPhotoModel.Store.fotoporalbum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fotografia">
+        <PropertyRef Name="idfotografia" />
+      </Principal>
+      <Dependent Role="fotoporalbum">
+        <PropertyRef Name="idfotografia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_producto_publica_usuario">
+    <End Role="usuario" Type="uPhotoModel.Store.usuario" Multiplicity="1" />
+    <End Role="producto" Type="uPhotoModel.Store.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_publicac_postea_usuario">
+    <End Role="usuario" Type="uPhotoModel.Store.usuario" Multiplicity="1" />
+    <End Role="publicacion" Type="uPhotoModel.Store.publicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="publicacion">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_rolporus_realizado_rol">
+    <End Role="rol" Type="uPhotoModel.Store.rol" Multiplicity="1" />
+    <End Role="rolporusuario" Type="uPhotoModel.Store.rolporusuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="nombrerol" />
+      </Principal>
+      <Dependent Role="rolporusuario">
+        <PropertyRef Name="nombrerol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_rolporus_realizado_usuario">
+    <End Role="usuario" Type="uPhotoModel.Store.usuario" Multiplicity="1" />
+    <End Role="rolporusuario" Type="uPhotoModel.Store.rolporusuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="rolporusuario">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuario_ingresa_sesion">
+    <End Role="sesion" Type="uPhotoModel.Store.sesion" Multiplicity="1" />
+    <End Role="usuario" Type="uPhotoModel.Store.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sesion">
+        <PropertyRef Name="idsesion" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="idsesion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
