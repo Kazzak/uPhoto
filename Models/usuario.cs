@@ -23,7 +23,7 @@ namespace uPhoto.Models
         }
     
         public int idusuario { get; set; }
-        public int idsesion { get; set; }
+        public string idsesion { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
         public byte[] foto { get; set; }
