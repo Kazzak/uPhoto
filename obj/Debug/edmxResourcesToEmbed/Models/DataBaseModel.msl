@@ -95,9 +95,8 @@
       <EntityTypeMapping TypeName="uPhotoModel.sesion">
         <MappingFragment StoreEntitySet="sesion">
           <ScalarProperty Name="idsesion" ColumnName="idsesion" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
           <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
-          <ScalarProperty Name="ultimoingreso" ColumnName="ultimoingreso" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

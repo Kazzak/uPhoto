@@ -18,3 +18,4 @@ c:\users\ricardo gago\documents\visual studio 2012\Projects\uPhoto\uPhoto\bin\Sy
 c:\users\ricardo gago\documents\visual studio 2012\Projects\uPhoto\uPhoto\bin\System.Web.WebPages.Razor.xml
 c:\users\ricardo gago\documents\visual studio 2012\Projects\uPhoto\uPhoto\obj\Debug\uPhoto.dll
 c:\users\ricardo gago\documents\visual studio 2012\Projects\uPhoto\uPhoto\obj\Debug\uPhoto.pdb
+C:\Users\Ricardo Gago\Documents\Visual Studio 2012\Projects\uPhoto\uPhoto\obj\Debug\uPhoto.csprojResolveAssemblyReference.cache

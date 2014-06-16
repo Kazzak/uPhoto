@@ -16,14 +16,13 @@ namespace uPhoto.Models
     {
         public sesion()
         {
-            this.usuario = new HashSet<usuario>();
+            this.usuario1 = new HashSet<usuario>();
         }
     
-        public string idsesion { get; set; }
+        public int idsesion { get; set; }
+        public string usuario { get; set; }
         public string password { get; set; }
-        public System.DateTime fecharegistro { get; set; }
-        public Nullable<System.DateTime> ultimoingreso { get; set; }
     
-        public virtual ICollection<usuario> usuario { get; set; }
+        public virtual ICollection<usuario> usuario1 { get; set; }
     }
 }
