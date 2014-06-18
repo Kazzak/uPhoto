@@ -267,17 +267,16 @@
     <Key>
       <PropertyRef Name="idsesion" />
     </Key>
-    <Property Name="idsesion" Type="nvarchar" Nullable="false" MaxLength="25" />
-    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="fecharegistro" Type="datetime" Nullable="false" />
-    <Property Name="ultimoingreso" Type="datetime" />
+    <Property Name="idsesion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="25" />
   </EntityType>
   <EntityType Name="usuario">
     <Key>
       <PropertyRef Name="idusuario" />
     </Key>
     <Property Name="idusuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="idsesion" Type="nvarchar" MaxLength="25" />
+    <Property Name="idsesion" Type="int" Nullable="false" />
     <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="apellido" Type="nvarchar" Nullable="false" MaxLength="30" />
     <Property Name="foto" Type="image" />
@@ -287,7 +286,7 @@
     <Property Name="fechanacimiento" Type="date" />
   </EntityType>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'uphoto.dbo.foro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'uPhoto.dbo.foro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="foro">
     <Key>
@@ -302,7 +301,7 @@
     <Property Name="nombreetiqueta" Type="nvarchar" Nullable="false" MaxLength="40" />
   </EntityType>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'uphoto.dbo.fotosporfotografo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'uPhoto.dbo.fotosporfotografo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="fotosporfotografo">
     <Key>
@@ -315,7 +314,7 @@
     <Property Name="nombrefoto" Type="nvarchar" Nullable="false" MaxLength="40" />
   </EntityType>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'uphoto.dbo.perfil' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'uPhoto.dbo.perfil' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="perfil">
     <Key>
@@ -560,7 +559,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_usuario_ingresa_sesion">
-    <End Role="sesion" Type="uPhotoModel.Store.sesion" Multiplicity="0..1" />
+    <End Role="sesion" Type="uPhotoModel.Store.sesion" Multiplicity="1" />
     <End Role="usuario" Type="uPhotoModel.Store.usuario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="sesion">

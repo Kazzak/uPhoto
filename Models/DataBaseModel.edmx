@@ -272,17 +272,16 @@
           <Key>
             <PropertyRef Name="idsesion" />
           </Key>
-          <Property Name="idsesion" Type="nvarchar" Nullable="false" MaxLength="25" />
-          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="30" />
-          <Property Name="fecharegistro" Type="datetime" Nullable="false" />
-          <Property Name="ultimoingreso" Type="datetime" />
+          <Property Name="idsesion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="25" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
             <PropertyRef Name="idusuario" />
           </Key>
           <Property Name="idusuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="idsesion" Type="nvarchar" MaxLength="25" />
+          <Property Name="idsesion" Type="int" Nullable="false" />
           <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="apellido" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="foto" Type="image" />
@@ -292,7 +291,7 @@
           <Property Name="fechanacimiento" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'uphoto.dbo.foro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'uPhoto.dbo.foro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="foro">
           <Key>
@@ -307,7 +306,7 @@
           <Property Name="nombreetiqueta" Type="nvarchar" Nullable="false" MaxLength="40" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'uphoto.dbo.fotosporfotografo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'uPhoto.dbo.fotosporfotografo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="fotosporfotografo">
           <Key>
@@ -320,7 +319,7 @@
           <Property Name="nombrefoto" Type="nvarchar" Nullable="false" MaxLength="40" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'uphoto.dbo.perfil' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'uPhoto.dbo.perfil' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="perfil">
           <Key>
@@ -565,7 +564,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_usuario_ingresa_sesion">
-          <End Role="sesion" Type="uPhotoModel.Store.sesion" Multiplicity="0..1" />
+          <End Role="sesion" Type="uPhotoModel.Store.sesion" Multiplicity="1" />
           <End Role="usuario" Type="uPhotoModel.Store.usuario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="sesion">
@@ -758,18 +757,17 @@
           <Key>
             <PropertyRef Name="idsesion" />
           </Key>
-          <Property Name="idsesion" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
-          <Property Name="fecharegistro" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ultimoingreso" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="usuario" Relationship="uPhotoModel.fk_usuario_ingresa_sesion" FromRole="sesion" ToRole="usuario" />
+          <Property Name="idsesion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="usuario1" Relationship="uPhotoModel.fk_usuario_ingresa_sesion" FromRole="sesion" ToRole="usuario" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
             <PropertyRef Name="idusuario" />
           </Key>
           <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idsesion" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="idsesion" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="apellido" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
           <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
@@ -894,7 +892,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_usuario_ingresa_sesion">
-          <End Role="sesion" Type="uPhotoModel.sesion" Multiplicity="0..1" />
+          <End Role="sesion" Type="uPhotoModel.sesion" Multiplicity="1" />
           <End Role="usuario" Type="uPhotoModel.usuario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="sesion">
@@ -1029,9 +1027,8 @@
             <EntityTypeMapping TypeName="uPhotoModel.sesion">
               <MappingFragment StoreEntitySet="sesion">
                 <ScalarProperty Name="idsesion" ColumnName="idsesion" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
                 <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
-                <ScalarProperty Name="ultimoingreso" ColumnName="ultimoingreso" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
