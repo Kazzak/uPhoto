@@ -28,7 +28,7 @@ namespace uPhoto.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (UserServices.ValidateUser(model.UserName, model.Password))
+                if (LoginController.ValidateUser(model.UserName, model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
@@ -319,29 +319,18 @@ namespace uPhoto.Controllers
                     var bd = new uPhotoEntities();
                     sesion sesion = new sesion
                     {
-                        usuario = model.UserName,
-                        password = model.Password
+                        idsesion = model.UserName,
+                        password = model.Password,
+                        fecharegistro = DateTime.Now,
+                        ultimoingreso = DateTime.Now
                     };
                     bd.sesion.Add(sesion);
-                    bd.SaveChanges();
 
-                    var existingSesion =
-                    (from c in bd.sesion
-                    where c.usuario == model.UserName && c.password == model.Password
-                    select c).First();
-
-                    int prueba = existingSesion.idsesion;
                     usuario user = new usuario
                     {
-<<<<<<< HEAD
                         idsesion = model.UserName,
                         nombre = model.Name,
                         apellido = model.LastName,
-=======
-                        idusuario = prueba,
-                        nombre = "pruebaNombre",
-                        apellido = "pruebaApellido",
->>>>>>> origin/master
                         fecharegistro = DateTime.Now,
                         email = model.Email,
                         nacionalidad = model.PaisOrigen.ToString()
