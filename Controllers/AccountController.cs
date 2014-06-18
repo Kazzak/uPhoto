@@ -43,7 +43,7 @@ namespace uPhoto.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", "El nombre de usuario o la contraseña provistos son incorrectos.");
                 }
             }
 
