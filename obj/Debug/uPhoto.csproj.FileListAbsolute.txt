@@ -16,6 +16,6 @@ C:\Users\Ricardo Gago\Documents\Visual Studio 2012\Projects\uPhoto\uPhoto\bin\Sy
 C:\Users\Ricardo Gago\Documents\Visual Studio 2012\Projects\uPhoto\uPhoto\bin\System.Web.WebPages.xml
 C:\Users\Ricardo Gago\Documents\Visual Studio 2012\Projects\uPhoto\uPhoto\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Ricardo Gago\Documents\Visual Studio 2012\Projects\uPhoto\uPhoto\bin\System.Web.WebPages.Razor.xml
+C:\Users\Ricardo Gago\Documents\Visual Studio 2012\Projects\uPhoto\uPhoto\obj\Debug\uPhoto.csprojResolveAssemblyReference.cache
 C:\Users\Ricardo Gago\Documents\Visual Studio 2012\Projects\uPhoto\uPhoto\obj\Debug\uPhoto.dll
 C:\Users\Ricardo Gago\Documents\Visual Studio 2012\Projects\uPhoto\uPhoto\obj\Debug\uPhoto.pdb
-C:\Users\Ricardo Gago\Documents\Visual Studio 2012\Projects\uPhoto\uPhoto\obj\Debug\uPhoto.csprojResolveAssemblyReference.cache
