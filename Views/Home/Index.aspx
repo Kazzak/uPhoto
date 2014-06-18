@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: ViewBag.Message %></h2>
-    <p style="font-size: x-large">
+    <p>
         Texto inicial de la página principal.
     </p>
 </asp:Content>

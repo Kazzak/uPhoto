@@ -45,23 +45,43 @@ namespace uPhoto.Models
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "ID de usuario")]
         public string UserName { get; set; }
 
         [Required]
-        [DataType(DataType.EmailAddress)]
-        [Display(Name = "Email address")]
-        public string Email { get; set; }
+        [Display(Name = "Nombre")]
+        public string Name { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Apellido")]
+        public string LastName { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [DataType(DataType.Text)]
+        //[Display(Name = "País de origen")]
+        [UIHint("List")]
+        public List<SelectListItem> ListaPais { get; set; }
+
+        [DataType(DataType.Text)]
+        [Required(ErrorMessage= "Debe seleccionar un país de origen")]
+        [Display(Name = "País de origen")]
+        public string PaisOrigen { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "La {0} debe ser de al menos {2} caracteres de largo.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [System.Web.Mvc.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Confirmar contraseña")]
+        [System.Web.Mvc.Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
+
+
     }
 }

@@ -99,7 +99,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SesionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,6 +158,7 @@
     <Compile Include="Models\sesion.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SesionModels.cs" />
     <Compile Include="Models\UserServices.cs" />
     <Compile Include="Models\usuario.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
@@ -283,6 +284,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ContenidoWeb\" />
+    <Folder Include="Views\Sesion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -12,17 +12,12 @@ namespace uPhoto.Controllers
 
         public static bool ValidateUser(string user, string password)
         {
-            //Simulación de campos en una tabla de la base de datos
-            //uPhotoEntities db = new uPhotoEntities();
-            var bd2 = new uPhotoEntities();
-            var usuario = bd2.sesion.FirstOrDefault(x => x.idsesion == user && x.password == password);
+            var bd = new uPhotoEntities();
+            var usuario = bd.sesion.FirstOrDefault(x => x.idsesion == user && x.password == password);
 
-            //const string validateUser = "pepe";
-            //const string validatePass = "123";
             if (usuario != null)
             {
                 //Si el nombre de usuario y la contraseña coinciden se devuelve true
-                //return (validateUser == user & validatePass == password);
                 return true;
             }
             return false;

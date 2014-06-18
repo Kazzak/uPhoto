@@ -16,9 +16,10 @@
             font-family: Helvetica;
             position: fixed;
             top: 5px;
-            left: 4px;
+            left: 45px;
             height: 57px;
             text-align: center;
+            bottom: 265px;
         }
     </style>
 </head>
