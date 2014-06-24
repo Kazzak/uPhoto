@@ -11,7 +11,7 @@
 
 <div class="jumbotron">
     <% using (Html.BeginForm()) { %>
-        <%: Html.ValidationSummary(true, "La creación de la cuenta falló. Favor corregir los errores e intentar de nuevo") %>
+        <%: Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.") %>
         <div class="well">
             <fieldset class="control-grouperror">
                 <legend>Información de la cuenta</legend>

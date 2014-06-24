@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<BuPhoto.Models.LogONModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Inicio de sesión
+    LogON
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -31,12 +31,12 @@
                     <%: Html.PasswordFor(m => m.Password,new { @class = "span3" }) %>
                     <%: Html.ValidationMessageFor(m => m.Password) %>
                 </div>
-                <p class="editor-field"/>
+                
                 <div class="editor-label">
                     <%: Html.CheckBoxFor(m => m.RememberMe,new { @class = "span3" }) %>
                     <%: Html.LabelFor(m => m.RememberMe) %>
                 </div>
-                <p class="editor-field"/>
+                
                 <p>
                     <input type="submit" value="Ingresar" class="btn btn-primary btn-large"/>
                 </p>

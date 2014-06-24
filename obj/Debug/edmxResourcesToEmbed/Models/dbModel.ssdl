@@ -271,6 +271,7 @@
     <Property Name="idsesion" Type="nvarchar" Nullable="false" MaxLength="25" />
     <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="30" />
     <Property Name="fecharegistro" Type="datetime" Nullable="false" />
+    <Property Name="ultimoingreso" Type="datetime" />
   </EntityType>
   <EntityType Name="usuario">
     <Key>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BuPhoto.Models;
+using System.IO;
 
 namespace BuPhoto.Controllers
 {
@@ -14,7 +15,26 @@ namespace BuPhoto.Controllers
 
         public ActionResult Index()
         {
+            ////System.Guid.NewGuid().ToString();
+            var ruta = "tati";
+            var ghgh = "vamos";
+
+            if (!Directory.Exists(ruta))
+            {
+                System.IO.Directory.CreateDirectory(Server.MapPath(ruta + '/' + ghgh));
+            }
+            
+            else
+            {
+
+                System.IO.Directory.CreateDirectory(Server.MapPath(ruta));
+
+            }
+
+
             return View();
+
+
         }
 
         public ActionResult CameraSearch()

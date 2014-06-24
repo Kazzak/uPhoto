@@ -23,25 +23,5 @@ namespace BuPhoto.Controllers
             return View(model);
         }
 
-        public void getUser()
-        {
-
-        }
-
-        public void getAlbum()
-        {
-
-        }
-
-        public void getCountOfAlbums()
-        {
-
-        }
-
-        public void getCountOfPhotos()
-        {
-
-        }
-
     }
 }

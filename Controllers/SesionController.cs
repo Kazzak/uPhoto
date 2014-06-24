@@ -310,6 +310,7 @@ namespace BuPhoto.Controllers
                         fecharegistro = DateTime.Now,
                     };
                     bd.sesion.Add(sesion);
+                    
 
                     usuario user = new usuario
                     {
@@ -375,7 +376,5 @@ namespace BuPhoto.Controllers
             return true;
         }
     
-        
-
     }
 }

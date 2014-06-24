@@ -18,3 +18,23 @@ c:\users\ricardo gago\documents\visual studio 2012\Projects\BuPhoto\BuPhoto\bin\
 c:\users\ricardo gago\documents\visual studio 2012\Projects\BuPhoto\BuPhoto\bin\System.Web.WebPages.Razor.xml
 c:\users\ricardo gago\documents\visual studio 2012\Projects\BuPhoto\BuPhoto\obj\Debug\BuPhoto.dll
 c:\users\ricardo gago\documents\visual studio 2012\Projects\BuPhoto\BuPhoto\obj\Debug\BuPhoto.pdb
+C:\Users\Ricardo Gago\Documents\Visual Studio 2012\Projects\BuPhoto\BuPhoto\obj\Debug\BuPhoto.csprojResolveAssemblyReference.cache
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\BuPhoto.dll
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\BuPhoto.pdb
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.Helpers.dll
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.Mvc.dll
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.Razor.dll
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.WebPages.dll
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.WebPages.Razor.dll
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.Helpers.xml
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.Mvc.xml
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.Razor.xml
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.WebPages.xml
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Estefany Quesada\Desktop\uPhoto\bin\System.Web.WebPages.Razor.xml
+C:\Users\Estefany Quesada\Desktop\uPhoto\obj\Debug\BuPhoto.csprojResolveAssemblyReference.cache
+C:\Users\Estefany Quesada\Desktop\uPhoto\obj\Debug\BuPhoto.dll
+C:\Users\Estefany Quesada\Desktop\uPhoto\obj\Debug\BuPhoto.pdb

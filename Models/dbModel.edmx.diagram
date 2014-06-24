@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5682930d8d04406f8ad1c80c10b336fd" Name="Diagram1">
+      <Diagram DiagramId="96c041ff3025419abd15925f42b36743" Name="Diagram1">
         <EntityTypeShape EntityType="uPhotoModel.album" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="uPhotoModel.comentario" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="uPhotoModel.etiqueta" Width="1.5" PointX="9.75" PointY="8.125" IsExpanded="true" />
