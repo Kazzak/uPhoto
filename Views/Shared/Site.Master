@@ -16,7 +16,7 @@
     <link href="../../Content/bootstrap/css/bootstrap-theme.min.css")" rel="stylesheet" type="text/css" />
     <%-- CSS personalizado de la página --%>
     <%--<link href="../../Content/Site.css" rel="stylesheet" type="text/css" />--%>
-    <link href="../../Content/buscador.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     <!-- Barra superior fija -->
@@ -39,7 +39,7 @@
                         <%: Html.ActionLink("Foro", "Foro", "Inicio")%>
                     </li>
                     <li>
-                        <%: Html.ActionLink("Cámaras", "Buscador_camara", "Camera")%>
+                        <%: Html.ActionLink("Buscador de cámaras", "CameraSearch", "Inicio")%>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">

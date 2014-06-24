@@ -11,15 +11,15 @@ namespace BuPhoto.Models
     public class LogONModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Nombre de usuario")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "No cerrar sesión")]
         public bool RememberMe { get; set; }
     }
 
@@ -60,7 +60,7 @@ namespace BuPhoto.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar contraseña")]
-        [System.Web.Mvc.Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
+        [System.Web.Mvc.Compare("Password", ErrorMessage = "La contraseña ingresadas no coinciden.")]
         public string ConfirmPassword { get; set; }
 
     }

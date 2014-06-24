@@ -97,72 +97,97 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CameraController.cs" />
+    <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\AlbumController.cs" />
+    <Compile Include="Controllers\EtiquetaController.cs" />
+    <Compile Include="Controllers\FotografiaController.cs" />
+    <Compile Include="Controllers\FotografoController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\ModeradorController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\SesionController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\album.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\comentario.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\DBModel.Context.cs">
-      <AutoGen>True</AutoGen>
+    <Compile Include="Models\dbModel.Context.cs">
+      <DependentUpon>dbModel.Context.tt</DependentUpon>
+      <SubType>Code</SubType>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBModel.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Models\DBModel.cs">
-      <AutoGen>True</AutoGen>
+    <Compile Include="Models\dbModel.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Models\DBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
+    <Compile Include="Models\dbModel.Designer.cs">
+      <DependentUpon>dbModel.edmx</DependentUpon>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBModel.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\etiqueta.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\EtiquetaModels.cs" />
     <Compile Include="Models\foro.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\fotografia.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\FotografiaModels.cs" />
     <Compile Include="Models\fotografo.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\fotosporfotografo.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\InicioModels.cs" />
     <Compile Include="Models\perfil.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\PerfilModels.cs" />
     <Compile Include="Models\producto.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\publicacion.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\rol.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\RolModels.cs" />
     <Compile Include="Models\rolporusuario.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\sesion.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\SesionModels.cs" />
     <Compile Include="Models\usuario.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>dbModel.tt</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -172,7 +197,6 @@
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\buscador.css" />
     <Content Include="Content\images\fondo.jpg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -235,24 +259,20 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <EntityDeploy Include="Models\DBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DBModel.edmx.diagram">
-      <DependentUpon>DBModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\DBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-      <LastGenOutput>DBModel.cs</LastGenOutput>
-    </Content>
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Models\dbModel.Context.tt">
+      <DependentUpon>dbModel.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>dbModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\dbModel.edmx.diagram">
+      <DependentUpon>dbModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\dbModel.tt">
+      <DependentUpon>dbModel.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>dbModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -263,7 +283,6 @@
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="Views\Camera\Buscador_camara.aspx" />
     <Content Include="Views\Inicio\CameraSearch.aspx" />
     <Content Include="Views\Inicio\Foro.aspx" />
     <Content Include="Views\Inicio\Index.aspx" />
@@ -294,13 +313,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ContenidoWeb\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\dbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
