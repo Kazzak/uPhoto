@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-<h2>Perfil</h2>
-
+<div class="jumbotron">
+<h2><%: Page.User.Identity.Name %></h2>
+</div>
 </asp:Content>

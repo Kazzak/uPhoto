@@ -18,4 +18,3 @@ c:\users\ricardo gago\documents\visual studio 2012\Projects\BuPhoto\BuPhoto\bin\
 c:\users\ricardo gago\documents\visual studio 2012\Projects\BuPhoto\BuPhoto\bin\System.Web.WebPages.Razor.xml
 c:\users\ricardo gago\documents\visual studio 2012\Projects\BuPhoto\BuPhoto\obj\Debug\BuPhoto.dll
 c:\users\ricardo gago\documents\visual studio 2012\Projects\BuPhoto\BuPhoto\obj\Debug\BuPhoto.pdb
-C:\Users\Ricardo Gago\Documents\Visual Studio 2012\Projects\BuPhoto\BuPhoto\obj\Debug\BuPhoto.csprojResolveAssemblyReference.cache

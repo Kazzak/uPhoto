@@ -97,9 +97,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\AlbumController.cs" />
+    <Compile Include="Controllers\EtiquetaController.cs" />
+    <Compile Include="Controllers\FotografiaController.cs" />
+    <Compile Include="Controllers\FotografoController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\ModeradorController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\SesionController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -112,24 +120,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\dbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>dbModel.Context.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\dbModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>dbModel.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\dbModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>dbModel.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\etiqueta.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\EtiquetaModels.cs" />
     <Compile Include="Models\foro.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
       <SubType>Code</SubType>
@@ -138,6 +148,7 @@
       <DependentUpon>dbModel.tt</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\FotografiaModels.cs" />
     <Compile Include="Models\fotografo.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
       <SubType>Code</SubType>
@@ -164,6 +175,7 @@
       <DependentUpon>dbModel.tt</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\RolModels.cs" />
     <Compile Include="Models\rolporusuario.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
       <SubType>Code</SubType>
@@ -247,24 +259,20 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <EntityDeploy Include="Models\dbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Models\dbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>dbModel.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\dbModel.edmx.diagram">
       <DependentUpon>dbModel.edmx</DependentUpon>
     </Content>
     <Content Include="Models\dbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>dbModel.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbModel.cs</LastGenOutput>
     </Content>
-    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -311,6 +319,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\dbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

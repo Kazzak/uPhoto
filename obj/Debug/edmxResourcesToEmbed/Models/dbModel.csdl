@@ -181,7 +181,6 @@
     <Property Name="idsesion" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
     <Property Name="password" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
     <Property Name="fecharegistro" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ultimoingreso" Type="DateTime" Precision="3" />
     <NavigationProperty Name="usuario" Relationship="uPhotoModel.fk_usuario_ingresa_sesion" FromRole="sesion" ToRole="usuario" />
   </EntityType>
   <EntityType Name="usuario">

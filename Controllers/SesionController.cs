@@ -308,7 +308,6 @@ namespace BuPhoto.Controllers
                         idsesion = model.UserName,
                         password = model.Password,
                         fecharegistro = DateTime.Now,
-                        ultimoingreso = DateTime.Now
                     };
                     bd.sesion.Add(sesion);
 
@@ -376,5 +375,7 @@ namespace BuPhoto.Controllers
             return true;
         }
     
+        
+
     }
 }

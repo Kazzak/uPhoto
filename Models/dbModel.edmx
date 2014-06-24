@@ -276,7 +276,6 @@
           <Property Name="idsesion" Type="nvarchar" Nullable="false" MaxLength="25" />
           <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="fecharegistro" Type="datetime" Nullable="false" />
-          <Property Name="ultimoingreso" Type="datetime" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -763,7 +762,6 @@
           <Property Name="idsesion" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
           <Property Name="password" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
           <Property Name="fecharegistro" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ultimoingreso" Type="DateTime" Precision="3" />
           <NavigationProperty Name="usuario" Relationship="uPhotoModel.fk_usuario_ingresa_sesion" FromRole="sesion" ToRole="usuario" />
         </EntityType>
         <EntityType Name="usuario">
@@ -1034,7 +1032,6 @@
                 <ScalarProperty Name="idsesion" ColumnName="idsesion" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
-                <ScalarProperty Name="ultimoingreso" ColumnName="ultimoingreso" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

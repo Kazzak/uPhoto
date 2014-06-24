@@ -98,7 +98,6 @@
           <ScalarProperty Name="idsesion" ColumnName="idsesion" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
-          <ScalarProperty Name="ultimoingreso" ColumnName="ultimoingreso" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -7,38 +7,39 @@ using BuPhoto.Models;
 
 namespace BuPhoto.Controllers
 {
-    public class PerfilController : Controller
+    public abstract class AlbumController : Controller
     {
         //
-        // GET: /Perfil/
+        // GET: /Album/
 
-        public ActionResult Perfil()
+        [HttpGet]
+        public ActionResult Album()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Perfil(PerfilModel model)
+        public ActionResult Album(AlbumModel model)
         {
             return View(model);
         }
 
+        public void deleteAlbum()
+        {
+
+        }
+
+        public void addAlbum()
+        {
+
+        }
+
+        public void getPhotos()
+        {
+
+        }
+
         public void getUser()
-        {
-
-        }
-
-        public void getAlbum()
-        {
-
-        }
-
-        public void getCountOfAlbums()
-        {
-
-        }
-
-        public void getCountOfPhotos()
         {
 
         }

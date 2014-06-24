@@ -22,7 +22,6 @@ namespace BuPhoto.Models
         public string idsesion { get; set; }
         public string password { get; set; }
         public System.DateTime fecharegistro { get; set; }
-        public Nullable<System.DateTime> ultimoingreso { get; set; }
     
         public virtual ICollection<usuario> usuario { get; set; }
     }
