@@ -98,7 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AdministradorController.cs" />
-    <Compile Include="Controllers\AlbumController.cs" />
+    <Compile Include="Controllers\AlbController.cs" />
     <Compile Include="Controllers\CameraController.cs" />
     <Compile Include="Controllers\EtiquetaController.cs" />
     <Compile Include="Controllers\FotografiaController.cs" />
@@ -116,6 +116,7 @@
       <DependentUpon>dbModel.tt</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\AlbumModels.cs" />
     <Compile Include="Models\comentario.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
       <SubType>Code</SubType>

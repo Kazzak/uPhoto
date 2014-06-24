@@ -9,11 +9,9 @@
     <div class="jumbotron">
         <h2>Cámaras</h2>
    
-        <div class="delimitador">
-	<div class= "contenedor">
-    <iframe src="http://astore.amazon.com/uphoto0a-20"></iframe>
-        
-        </div>
+        <iframe src="http://astore.amazon.com/uphoto0a-20" width="90%" height="4000" frameborder="0" scrolling="no"></iframe>
+
+
  
    </div>
         </div>
