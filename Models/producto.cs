@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace uPhoto.Models
+namespace BuPhoto.Models
 {
     using System;
     using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace uPhoto.Models
         public string nombre { get; set; }
         public string marca { get; set; }
         public string modelo { get; set; }
-        public byte[] foto { get; set; }
+        public string foto { get; set; }
         public Nullable<System.DateTime> fechalanzamiento { get; set; }
         public System.DateTime fecharegistro { get; set; }
     

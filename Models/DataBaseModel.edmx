@@ -168,12 +168,12 @@
           <Key>
             <PropertyRef Name="idusuariocomentador" />
             <PropertyRef Name="comentario" />
-            <PropertyRef Name="idpublicacion" />
+            <PropertyRef Name="titulopublicacion" />
             <PropertyRef Name="idusuariopublicacion" />
           </Key>
           <Property Name="idusuariocomentador" Type="int" Nullable="false" />
           <Property Name="comentario" Type="nvarchar" Nullable="false" MaxLength="150" />
-          <Property Name="idpublicacion" Type="int" Nullable="false" />
+          <Property Name="titulopublicacion" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="idusuariopublicacion" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="etiqueta">
@@ -193,11 +193,11 @@
         </EntityType>
         <EntityType Name="etiquetaporpublicacion">
           <Key>
-            <PropertyRef Name="idpublicacion" />
+            <PropertyRef Name="titulopublicacion" />
             <PropertyRef Name="idusuario" />
             <PropertyRef Name="nombreetiqueta" />
           </Key>
-          <Property Name="idpublicacion" Type="int" Nullable="false" />
+          <Property Name="titulopublicacion" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="idusuario" Type="int" Nullable="false" />
           <Property Name="nombreetiqueta" Type="nvarchar" Nullable="false" MaxLength="40" />
         </EntityType>
@@ -209,6 +209,7 @@
           <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="40" />
           <Property Name="fechacreacion" Type="datetime" Nullable="false" />
           <Property Name="descripcion" Type="nvarchar" MaxLength="150" />
+          <Property Name="url" Type="nvarchar" Nullable="false" MaxLength="500" />
         </EntityType>
         <EntityType Name="fotografo">
           <Key>
@@ -237,19 +238,19 @@
           <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="marca" Type="nvarchar" MaxLength="20" />
           <Property Name="modelo" Type="nvarchar" MaxLength="20" />
-          <Property Name="foto" Type="image" />
+          <Property Name="foto" Type="nvarchar" MaxLength="500" />
           <Property Name="fechalanzamiento" Type="date" />
           <Property Name="fecharegistro" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="publicacion">
           <Key>
-            <PropertyRef Name="idpublicacion" />
+            <PropertyRef Name="titulopublicacion" />
             <PropertyRef Name="idusuario" />
           </Key>
-          <Property Name="idpublicacion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="titulopublicacion" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="idusuario" Type="int" Nullable="false" />
           <Property Name="publicacion" Type="nvarchar" Nullable="false" MaxLength="300" />
-          <Property Name="foto" Type="image" />
+          <Property Name="foto" Type="nvarchar" MaxLength="500" />
           <Property Name="fechacreacion" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="rol">
@@ -285,14 +286,14 @@
           <Property Name="idsesion" Type="nvarchar" MaxLength="25" />
           <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="apellido" Type="nvarchar" Nullable="false" MaxLength="30" />
-          <Property Name="foto" Type="image" />
+          <Property Name="foto" Type="nvarchar" MaxLength="500" />
           <Property Name="fecharegistro" Type="datetime" Nullable="false" />
           <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="40" />
           <Property Name="nacionalidad" Type="nvarchar" MaxLength="20" />
           <Property Name="fechanacimiento" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'uphoto.dbo.foro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'uPhoto.dbo.foro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="foro">
           <Key>
@@ -307,7 +308,7 @@
           <Property Name="nombreetiqueta" Type="nvarchar" Nullable="false" MaxLength="40" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'uphoto.dbo.fotosporfotografo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'uPhoto.dbo.fotosporfotografo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="fotosporfotografo">
           <Key>
@@ -320,7 +321,7 @@
           <Property Name="nombrefoto" Type="nvarchar" Nullable="false" MaxLength="40" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'uphoto.dbo.perfil' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'uPhoto.dbo.perfil' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="perfil">
           <Key>
@@ -332,7 +333,7 @@
           <Property Name="idusuario" Type="int" Nullable="false" />
           <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="apellido" Type="nvarchar" Nullable="false" MaxLength="30" />
-          <Property Name="foto" Type="image" />
+          <Property Name="foto" Type="nvarchar" MaxLength="500" />
           <Property Name="nombrealbum" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="descripcion" Type="nvarchar" MaxLength="150" />
         </EntityType>
@@ -407,11 +408,11 @@
           <End Role="comentarioporpublicacion" Type="uPhotoModel.Store.comentarioporpublicacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="publicacion">
-              <PropertyRef Name="idpublicacion" />
+              <PropertyRef Name="titulopublicacion" />
               <PropertyRef Name="idusuario" />
             </Principal>
             <Dependent Role="comentarioporpublicacion">
-              <PropertyRef Name="idpublicacion" />
+              <PropertyRef Name="titulopublicacion" />
               <PropertyRef Name="idusuariopublicacion" />
             </Dependent>
           </ReferentialConstraint>
@@ -457,11 +458,11 @@
           <End Role="etiquetaporpublicacion" Type="uPhotoModel.Store.etiquetaporpublicacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="publicacion">
-              <PropertyRef Name="idpublicacion" />
+              <PropertyRef Name="titulopublicacion" />
               <PropertyRef Name="idusuario" />
             </Principal>
             <Dependent Role="etiquetaporpublicacion">
-              <PropertyRef Name="idpublicacion" />
+              <PropertyRef Name="titulopublicacion" />
               <PropertyRef Name="idusuario" />
             </Dependent>
           </ReferentialConstraint>
@@ -691,6 +692,7 @@
           <Property Name="titulo" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
           <Property Name="fechacreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="descripcion" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="comentario" Relationship="uPhotoModel.comentarioporfoto" FromRole="fotografia" ToRole="comentario" />
           <NavigationProperty Name="album" Relationship="uPhotoModel.fotoporalbum" FromRole="fotografia" ToRole="album" />
         </EntityType>
@@ -715,20 +717,20 @@
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
           <Property Name="marca" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="modelo" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
-          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="foto" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
           <Property Name="fechalanzamiento" Type="DateTime" Precision="0" />
           <Property Name="fecharegistro" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="usuario" Relationship="uPhotoModel.fk_producto_publica_usuario" FromRole="producto" ToRole="usuario" />
         </EntityType>
         <EntityType Name="publicacion">
           <Key>
-            <PropertyRef Name="idpublicacion" />
+            <PropertyRef Name="titulopublicacion" />
             <PropertyRef Name="idusuario" />
           </Key>
-          <Property Name="idpublicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulopublicacion" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
           <Property Name="idusuario" Type="Int32" Nullable="false" />
           <Property Name="publicacion1" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="false" />
-          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="foto" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
           <Property Name="fechacreacion" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="usuario" Relationship="uPhotoModel.fk_publicac_postea_usuario" FromRole="publicacion" ToRole="usuario" />
           <NavigationProperty Name="comentario" Relationship="uPhotoModel.comentarioporpublicacion" FromRole="publicacion" ToRole="comentario" />
@@ -772,7 +774,7 @@
           <Property Name="idsesion" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="apellido" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
-          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="foto" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
           <Property Name="fecharegistro" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
           <Property Name="nacionalidad" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
@@ -815,7 +817,7 @@
           <Property Name="idusuario" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="apellido" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
-          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="foto" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
           <Property Name="nombrealbum" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
           <Property Name="descripcion" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
         </EntityType>
@@ -970,6 +972,7 @@
                 <ScalarProperty Name="titulo" ColumnName="titulo" />
                 <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="url" ColumnName="url" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1000,7 +1003,7 @@
           <EntitySetMapping Name="publicacion">
             <EntityTypeMapping TypeName="uPhotoModel.publicacion">
               <MappingFragment StoreEntitySet="publicacion">
-                <ScalarProperty Name="idpublicacion" ColumnName="idpublicacion" />
+                <ScalarProperty Name="titulopublicacion" ColumnName="titulopublicacion" />
                 <ScalarProperty Name="idusuario" ColumnName="idusuario" />
                 <ScalarProperty Name="publicacion1" ColumnName="publicacion" />
                 <ScalarProperty Name="foto" ColumnName="foto" />
@@ -1105,7 +1108,7 @@
               <ScalarProperty Name="idusuario" ColumnName="idusuariocomentador" />
             </EndProperty>
             <EndProperty Name="publicacion">
-              <ScalarProperty Name="idpublicacion" ColumnName="idpublicacion" />
+              <ScalarProperty Name="titulopublicacion" ColumnName="titulopublicacion" />
               <ScalarProperty Name="idusuario" ColumnName="idusuariopublicacion" />
             </EndProperty>
           </AssociationSetMapping>
@@ -1119,7 +1122,7 @@
           </AssociationSetMapping>
           <AssociationSetMapping Name="etiquetaporpublicacion" TypeName="uPhotoModel.etiquetaporpublicacion" StoreEntitySet="etiquetaporpublicacion">
             <EndProperty Name="publicacion">
-              <ScalarProperty Name="idpublicacion" ColumnName="idpublicacion" />
+              <ScalarProperty Name="titulopublicacion" ColumnName="titulopublicacion" />
               <ScalarProperty Name="idusuario" ColumnName="idusuario" />
             </EndProperty>
             <EndProperty Name="etiqueta">

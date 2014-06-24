@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace uPhoto.Models
+namespace BuPhoto.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace uPhoto.Models
         public int idusuario { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
-        public byte[] foto { get; set; }
+        public string foto { get; set; }
         public string nombrealbum { get; set; }
         public string descripcion { get; set; }
     }

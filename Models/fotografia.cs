@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace uPhoto.Models
+namespace BuPhoto.Models
 {
     using System;
     using System.Collections.Generic;
@@ -24,6 +24,7 @@ namespace uPhoto.Models
         public string titulo { get; set; }
         public System.DateTime fechacreacion { get; set; }
         public string descripcion { get; set; }
+        public string url { get; set; }
     
         public virtual ICollection<comentario> comentario { get; set; }
         public virtual ICollection<album> album { get; set; }

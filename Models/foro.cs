@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace uPhoto.Models
+namespace BuPhoto.Models
 {
     using System;
     using System.Collections.Generic;

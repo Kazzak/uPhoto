@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace uPhoto.Models
+namespace BuPhoto.Models
 {
     using System;
     using System.Collections.Generic;
@@ -20,10 +20,10 @@ namespace uPhoto.Models
             this.etiqueta = new HashSet<etiqueta>();
         }
     
-        public int idpublicacion { get; set; }
+        public string titulopublicacion { get; set; }
         public int idusuario { get; set; }
         public string publicacion1 { get; set; }
-        public byte[] foto { get; set; }
+        public string foto { get; set; }
         public System.DateTime fechacreacion { get; set; }
     
         public virtual usuario usuario { get; set; }

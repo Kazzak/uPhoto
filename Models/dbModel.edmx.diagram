@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7c6a3e3533224bf59888c98e4e738290" Name="Diagram1">
+        <EntityTypeShape EntityType="uPhotoModel.album" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.comentario" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.etiqueta" Width="1.5" PointX="9.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.fotografia" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.fotografo" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.producto" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.publicacion" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.rol" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.rolporusuario" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.sesion" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.usuario" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.foro" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.fotosporfotografo" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="uPhotoModel.perfil" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="uPhotoModel.fk_comentar_realiza_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.fk_fotograf_clasifica_rolporus" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.fk_producto_publica_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.fk_publicac_postea_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.fk_rolporus_realizado_rol" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.fk_rolporus_realizado_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.fk_usuario_ingresa_sesion" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.albumporfotografo" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.comentarioporfoto" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.comentarioporpublicacion" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.etiquetaporalbum" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.etiquetaporpublicacion" ManuallyRouted="false" />
+        <AssociationConnector Association="uPhotoModel.fotoporalbum" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
