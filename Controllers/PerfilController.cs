@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BuPhoto.Models;
+using System.Web.Security;
 
 namespace BuPhoto.Controllers
 {
@@ -12,6 +13,7 @@ namespace BuPhoto.Controllers
         //
         // GET: /Perfil/
 
+        [Authorize]
         public ActionResult Perfil()
         {
             return View();

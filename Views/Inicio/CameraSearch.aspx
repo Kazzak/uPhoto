@@ -1,16 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Buscador de camaras
+    Cámaras
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>Buscador de camaras</h1>
-        <p>
-            <a class="btn btn-lg btn-primary" role="button">View navbar docs &raquo;</a>
-        </p>
-    </div>
-
-</asp:Content>
+        <h2>Cámaras</h2>
+   
+        <div class="delimitador">
+	<div class= "contenedor">
+    <iframe src="http://astore.amazon.com/uphoto0a-20"></iframe>
+        
+        </div>
+ 
+   </div>
+        </div>
+</asp:Content> 

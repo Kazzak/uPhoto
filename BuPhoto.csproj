@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\AlbumController.cs" />
+    <Compile Include="Controllers\CameraController.cs" />
     <Compile Include="Controllers\EtiquetaController.cs" />
     <Compile Include="Controllers\FotografiaController.cs" />
     <Compile Include="Controllers\FotografoController.cs" />
